@@ -130,6 +130,49 @@ public class Res extends RESTService {
     return null;
   }
 
+  /**
+   * 
+   * postDishRating
+   *
+   * 
+   *
+   * 
+   * @return Response New dish rating was stored.
+   * 
+   */
+  @POST
+  @Path("/ratings")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "New dish rating was stored.")
+  })
+  @ApiOperation(value = "postDishRating", notes = " ")
+  public Response postDishRating() {
+
+
+
+
+     
+    // service method invocations
+
+     
+
+
+
+
+    // created
+    boolean created_condition = true;
+    if(created_condition) {
+      JSONObject created = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_CREATED).entity(created.toJSONString()).build();
+    }
+    return null;
+  }
+
 
 
   }
