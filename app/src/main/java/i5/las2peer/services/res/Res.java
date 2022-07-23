@@ -94,7 +94,7 @@ public class Res extends RESTService {
    * 
    *
    * 
-   * @return Response Lists all the available dishes.
+   * @return Response Lists all available dishes.
    * 
    */
   @GET
@@ -102,7 +102,7 @@ public class Res extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Lists all the available dishes.")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Lists all available dishes.")
   })
   @ApiOperation(value = "listDishes", notes = " ")
   public Response listDishes() {
@@ -135,20 +135,22 @@ public class Res extends RESTService {
    * postDishRating
    *
    * 
-   *
+   * @param body  a JSONObject
    * 
-   * @return Response New dish rating was stored.
+   * @return Response 
    * 
    */
   @POST
   @Path("/ratings")
   @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.TEXT_PLAIN)
+  @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "New dish rating was stored.")
+       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "New dish rating was stored."),
+       @ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "badreq")
   })
   @ApiOperation(value = "postDishRating", notes = " ")
-  public Response postDishRating() {
+  public Response postDishRating(String body) {
+    JSONObject body_JSON = (JSONObject) JSONValue.parse(body);
 
 
 
@@ -169,6 +171,58 @@ public class Res extends RESTService {
       
 
       return Response.status(HttpURLConnection.HTTP_CREATED).entity(created.toJSONString()).build();
+    }
+    // badreq
+    boolean badreq_condition = true;
+    if(badreq_condition) {
+      JSONObject badreq = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_BAD_REQUEST).entity(badreq.toJSONString()).build();
+    }
+    return null;
+  }
+
+  /**
+   * 
+   * anotherMethod
+   *
+   * 
+   *
+   * 
+   * @return Response 
+   * 
+   */
+  @GET
+  @Path("/anotherMethod")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "res")
+  })
+  @ApiOperation(value = "anotherMethod", notes = " ")
+  public Response anotherMethod() {
+
+
+
+
+     
+    // service method invocations
+
+     
+
+
+
+
+    // res
+    boolean res_condition = true;
+    if(res_condition) {
+      JSONObject res = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_OK).entity(res.toJSONString()).build();
     }
     return null;
   }
