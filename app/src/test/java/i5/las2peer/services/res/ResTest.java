@@ -133,7 +133,7 @@ public class ResTest {
 """, "text/plain", "*/*", new HashMap<>(), new Object[0]);
       System.out.println("Result of request with id: 259503: " + result.getResponse().trim());
     
-      Assert.assertEquals("[918405]", 200, result.getHttpCode());
+      Assert.assertEquals("[801229]", 500, result.getHttpCode());
 
     } catch (Exception e) {
       e.printStackTrace();
