@@ -87,7 +87,50 @@ public class Res extends RESTService {
 
     private final Res service = (Res) Context.getCurrent().getService();
 
-    
+      /**
+   * 
+   * listDishes
+   *
+   * 
+   *
+   * 
+   * @return Response Lists all the available dishes.
+   * 
+   */
+  @GET
+  @Path("/dishes")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Lists all the available dishes.")
+  })
+  @ApiOperation(value = "listDishes", notes = " ")
+  public Response listDishes() {
+
+
+
+
+     
+    // service method invocations
+
+     
+
+
+
+
+    // dishResult
+    boolean dishResult_condition = true;
+    if(dishResult_condition) {
+      JSONObject dishResultName = new classes().new Dish().toJSON();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_OK).entity(dishResultName.toJSONString()).build();
+    }
+    return null;
+  }
+
+
 
   }
 
