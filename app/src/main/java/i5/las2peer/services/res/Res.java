@@ -102,6 +102,7 @@ public class Res extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal Error occurred"),
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Lists all the available dishes.")
   })
   @ApiOperation(value = "listDishes", notes = " ")
@@ -118,6 +119,15 @@ public class Res extends RESTService {
 
 
 
+    // error
+    boolean error_condition = true;
+    if(error_condition) {
+      JSONObject error = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(error.toJSONString()).build();
+    }
     // dishResult
     boolean dishResult_condition = true;
     if(dishResult_condition) {
